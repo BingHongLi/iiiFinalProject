@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/shiny-singletons">eff0c5afc0465b067b908840f4cd176dcc0d5e67,d7d9b797999cc3650fd673d65d60ea8318864bc8,2870fc1aba60c6528f449d97ed96a4f70409e82f</script>
+    <script type="application/html-dependencies">json2[2014.02.04];jquery[1.11.0];shiny[0.10.2.1];selectize[0.8.5];bootstrap[2.3.2];bootstrap-responsive[2.3.2]</script>
+    <script src="shared/json2-min.js"></script>
+    <script src="shared/jquery.js"></script>
+    <link href="shared/shiny.css" rel="stylesheet" />
+    <script src="shared/shiny.js"></script>
+    <link href="shared/selectize/css/selectize.bootstrap2.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+<script src="shared/selectize/js/es5-shim.min.js"></script>
+<![endif]-->
+    <script src="shared/selectize/js/selectize.min.js"></script>
+    <link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="shared/bootstrap/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="shared/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <title>Forecasting and Analysis</title>
+    <script src="Highcharts/js/highcharts.js" type="text/javascript"></script>
+    <script src="Highcharts/js/highcharts-more.js" type="text/javascript"></script>
+    <script src="Highcharts/js/exporting.js" type="text/javascript"></script>
+    <script type="text/javascript">
+		        $(document).ready(function(){ $("#picture").click(function(){ $("#picture").slideUp(900); }); });
+	</script>
+    <link rel='stylesheet' type='text/css' href='/B1D671CF-E532-4481-99AA-19F420D90332/netdefender/hui/ndhui.css' />
+</head>
+
+<body>
+    <script type='text/javascript' language='javascript' src='/B1D671CF-E532-4481-99AA-19F420D90332/netdefender/hui/ndhui.js?0=0&amp;0=0&amp;0=0'></script>
+    <div id="picture"><img src="picture.png"></div>
+	<div class="navbar navbar-static-top navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">
+                <span class="brand pull-left">Forecasting and Analysis</span>
+                <ul class="nav">
+                    <li class="active">
+                        <a href="#tab-1727-1" data-toggle="tab">Game Trend Forecasting</a>
+                    </li>
+                    <li>
+                        <a href="#tab-1727-2" data-toggle="tab">Price Cluster</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">&nbsp;</div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab-1727-1">
+                <div class="row-fluid">
+                    <div class="span4">
+                        <form class="well">
+                            <div class="tabbable tabs-above">
+                                <ul class="nav nav-pills">
+                                    <li class="active">
+                                        <a href="#tab-3639-1" data-toggle="tab">
+                                            <div id="control1" class="shiny-html-output"></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab-3639-1"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="span8">
+                        <div id="GameForecastingText" class="shiny-html-output"></div>
+                        <div id="plotTS" class="shiny-html-output rChart Highcharts"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab-1727-2">
+                <div class="row-fluid">
+                    <div class="span4">
+                        <form class="well">
+                            <div class="tabbable tabs-above">
+                                <ul class="nav nav-pills">
+                                    <li class="active">
+                                        <a href="#tab-2530-1" data-toggle="tab">
+                                            <label class="control-label" for="selectTags">Select Tags</label>
+                                            <select id="selectTags" multiple="multiple">
+                                                <option value="GenreAction">GenreAction</option>
+                                                <option value="Accounting">Accounting</option>
+                                                <option value="Action">Action</option>
+                                                <option value="Adventure">Adventure</option>
+                                                <option value="AnimationAndModeling">AnimationAndModeling</option>
+                                                <option value="AudioProduction">AudioProduction</option>
+                                                <option value="Casual">Casual</option>
+                                                <option value="DesignAndIllustration">DesignAndIllustration</option>
+                                                <option value="EarlyAccess">EarlyAccess</option>
+                                                <option value="Education">Education</option>
+                                                <option value="FreeToPlay">FreeToPlay</option>
+                                                <option value="Indie">Indie</option>
+                                                <option value="MassivelyMultiplayer">MassivelyMultiplayer</option>
+                                                <option value="PhotoEditing">PhotoEditing</option>
+                                                <option value="Racing">Racing</option>
+                                                <option value="RPG">RPG</option>
+                                                <option value="Simulation">Simulation</option>
+                                                <option value="Sports">Sports</option>
+                                                <option value="Strategy">Strategy</option>
+                                                <option value="Utilities">Utilities</option>
+                                                <option value="VideoProduction">VideoProduction</option>
+                                                <option value="WebPublishing">WebPublishing</option>
+                                                <option value="SoftwareTraining">SoftwareTraining</option>
+                                            </select>
+                                            <script type="application/json" data-for="selectTags">{}</script>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab-2530-1"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="span8">
+                        <div id="newGameDiscount" class="shiny-html-output"></div>
+                        <div id="plotNewGameTS" class="shiny-html-output rChart Highcharts"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
