@@ -1,0 +1,74 @@
+﻿專題製作中，我負責SQL server的建置，在ETL完成之後就準備匯入csv檔案，遇到不少錯誤....
+
+重複的資料集處理
+http://www.dotblogs.com.tw/lastsecret/archive/2010/07/13/16532.aspx
+
+匯入時 馬上碰到日期與分數的 匯入格式錯誤，只證明一件事，SQL server 強制轉換是不支援的。所以為了取得乾淨的DATA，必須先重新用EXCEL重新匯入原始資料
+
+定義內含值格式:
+DATE 定義出 MDY 之後轉成 yyyy/mm/dd 最好匯入， 如 Oct 10 ,2014 轉成 2014/10/10，
+數值用浮點數儲存，比較不會出現錯誤，即使是整數也需要加個小數點。
+
+重新匯入csv檔時，有碰到多出來的欄位問題，務必清除乾淨。
+這樣應該可以解決大部分的問題
+
+重複的資料集處理
+http://www.dotblogs.com.tw/lastsecret/archive/2010/07/13/16532.aspx
+
+話說 SQL server 建置使用者，參考 
+建立登入
+http://msdn.microsoft.com/zh-tw/library/aa337562.aspx
+
+使外部能夠連接 SQL server
+http://vito-sql.blogspot.tw/2013/11/blog-post_14.html
+
+R連接SQLserver
+blog
+http://blog.sqltrainer.com/2011/12/statistical-analysis-with-r-and.html
+在windows中設定好ODBC/系統資料來源名稱(我取YB802)之後
+安裝RODBC package
+channel <- odbcConnect("YB802", uid="帳號", pwd="密碼")
+即可
+RODBC package
+http://cran.cnr.berkeley.edu/web/packages/RODBC/index.html
+RODBC 說明
+http://cran.r-project.org/web/packages/RODBC/RODBC.pdf
+http://cran.r-project.org/web/packages/RODBC/vignettes/RODBC.pdf
+
+事實上，RJDBC亦可以連接
+
+
+密碼的部分在只有在第一次輸入時會需要ctrl+L增加安全性，之後sql存取R是有加密的，就這樣
+> channel
+RODBC Connection 20
+Details:
+case=nochange
+DSN=YB802
+Description=YB802
+UID=YB802
+PWD=******
+APP=RStudio
+WSID=BIGDATA-PC
+DATABASE=Steam
+Network=DBMSSOCN
+AutoTranslate=No
+QuotedId=No
+AnsiNPW=No
+
+更新預存程序 
+預存程序名稱中"_"之後的代表輸入參數
+ClassBigTable 
+其中score_score,id 程式 結果仍有null值
+GPHistory_id,com 
+輸入id和company參數 輸出歷史資料table ，com 值可輸入"*"
+IPLogicDate
+輸出IPrice的分開日期欄位表
+SPLogicDate
+輸出SPrice的分開日期欄位表
+
+完成價格狀態判斷，假日狀態判斷，存成SPrice1，待勘誤
+
+CSATTR 
+判斷折扣日區間，合併TAG TABLE
+
+
